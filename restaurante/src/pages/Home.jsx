@@ -26,7 +26,7 @@ export default function Home() {
         id="home"
         className="hero d-flex flex-column justify-content-center align-items-center mt-5 pt-5"
       >
-        <div className="content p-2" data-aos="fade-up" data-aos-delay="200">
+        <div className="content p-2">
           <h1>Bem-vindo ao Sabor & Arte</h1>
           <p>Uma experiência gastronômica inesquecível</p>
           <a href="#cardapio" className="btn btn-warning btn-lg mt-3">
@@ -37,10 +37,10 @@ export default function Home() {
 
       <section id="sobre">
         <div className="row align-items-center">
-          <div className="col-12 col-md-6 mb-3 mb-md-0" data-aos="fade-right">
+          <div className="col-12 col-md-6 mb-3 mb-md-0">
             <img src={sobreImg} alt="Sobre o restaurante sabor" className="img-fluid rounded" />
           </div>
-          <div className="col-12 col-md-6" data-aos="fade-left">
+          <div className="col-12 col-md-6" >
             <h2>Sobre o Restaurante <span className="text-warning">Sabor</span></h2>
             <p className="lead">
               Somos apaixonados por gastronomia e oferecemos pratos feitos com ingredientes frescos e muito carinho.
@@ -65,7 +65,7 @@ export default function Home() {
             : (
               cardapios.map((cardapio, index) => {
                 return (
-                  <div className="col-md-4 mb-4" key={cardapio.id} data-aos="fade-up" data-aos-delay={index * 200}>
+                  <div className="col-md-4 mb-4" key={cardapio.id}>
                     <div className="card h-100">
                       <img src={cardapio.imagem} className="card-img-top" alt={cardapio.desc} />
                       <div className="card-body">
@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       <section id="reservas">
-        <div className="container text-center"  data-aos="fade-up" data-aos-delay={1200}>
+        <div className="container text-center">
           <h2>Reservas</h2>
           <p className="lead">Faça sua reserva de forma rápida pelo WhatsApp.</p>
           <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva."
@@ -97,7 +97,7 @@ export default function Home() {
       </section>
 
       <section id="contato" className="py-5 bg-light">
-        <div className="container"  data-aos="fade-up" data-aos-delay={1400}>
+        <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
               <h2 className="mb-3 text-center">Fale conosco</h2>
@@ -167,7 +167,7 @@ export default function Home() {
       </section>
 
       <section id="localizacao" style={{ padding: '0' }}>
-        <iframe  data-aos="fade-up" data-aos-delay={1600} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126153.01125385346!2d13.20170168145374!3d-8.853353711556109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f15cdc8d2c7d%3A0x850c1c5c5ecc5a92!2sLuanda!5e0!3m2!1spt-PT!2sao!4v1756282010487!5m2!1spt-PT!2sao" width="100%" height="450" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126153.01125385346!2d13.20170168145374!3d-8.853353711556109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f15cdc8d2c7d%3A0x850c1c5c5ecc5a92!2sLuanda!5e0!3m2!1spt-PT!2sao!4v1756282010487!5m2!1spt-PT!2sao" width="100%" height="450" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </section>
 
       {/*Footer*/}
