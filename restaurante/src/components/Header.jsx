@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
         <div className="container">
           <Link className="navbar-brand fw-bold text-warning" to="/">
-            <i className="fas fa-utensils"></i> Restaurante Sabor
+            <i className="fas fa-utensils"></i> Restaurante Sabor & Arte
           </Link>
 
           <button
@@ -26,34 +26,29 @@ export default function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#sobre">
+                <a className="nav-link" href="#sobre">
                   Sobre
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#menu">
-                  Menu
-                </Link>
+                <a className="nav-link" href="#cardapio">
+                  Cardápio
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#reservas">
+                <a className="nav-link" href="#reservas">
                   Reservas
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#depoimentos">
-                  Depoimentos
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#localizacao">
+                <a className="nav-link" href="#localizacao">
                   Localização
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#contato">
+                <a className="nav-link" href="#contato">
                   Contato
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
