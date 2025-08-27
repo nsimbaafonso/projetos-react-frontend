@@ -1,13 +1,9 @@
 import { Helmet } from "react-helmet";
+import { formatPrice } from "../utils/formarPrice";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import sobreImg from "../assets/img/sobre.jpg";
-import prato1 from "../assets/img/prato-1.jpg";
-import prato2 from "../assets/img/prato-2.jpg";
-import prato3 from "../assets/img/prato-3.jpg";
-import prato4 from "../assets/img/prato-4.jpg";
-import prato5 from "../assets/img/prato-5.jpg";
-import prato6 from "../assets/img/prato-6.jpg";
+import cardapios from "../components/DadosCardapio"
 import "./../assets/css/style.css";
 
 export default function Home() {
@@ -63,85 +59,28 @@ export default function Home() {
         <div className="container text-center">
           <h2>Nosso Cardápio</h2>
           <div className="row mt-4">
-            {/*Card 1*/}
-            <div className="col-md-4 mb-4">
-              <div className="card h-100">
-                <img src={prato1} className="card-img-top" alt="Prato 1" />
-                <div className="card-body">
-                  <h5 className="card-title">Prato Especial</h5>
-                  <p className="card-text">Uma descrição deliciosa do prato.</p>
-                  <p><strong>500 Kz</strong></p>
-                  <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20pedir%20o%20Prato%20Especial."
-                    target="_blank" className="btn btn-success">Pedir via WhatsApp <i className="fab fa-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            {/*Card 2*/}
-            <div className="col-md-4 mb-4">
-              <div className="card h-100">
-                <img src={prato2} className="card-img-top" alt="Prato 2" />
-                <div className="card-body">
-                  <h5 className="card-title">Prato Especial</h5>
-                  <p className="card-text">Uma descrição deliciosa do prato.</p>
-                  <p><strong>700 Kz</strong></p>
-                  <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20pedir%20o%20Prato%20Especial."
-                    target="_blank" className="btn btn-success">Pedir via WhatsApp <i className="fab fa-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            {/*Card 3*/}
-            <div className="col-md-4 mb-4">
-              <div className="card h-100">
-                <img src={prato3} className="card-img-top" alt="Prato 3" />
-                <div className="card-body">
-                  <h5 className="card-title">Prato Especial</h5>
-                  <p className="card-text">Uma descrição deliciosa do prato.</p>
-                  <p><strong>900 Kz</strong></p>
-                  <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20pedir%20o%20Prato%20Especial."
-                    target="_blank" className="btn btn-success">Pedir via WhatsApp <i className="fab fa-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            {/*Card 4*/}
-            <div className="col-md-4 mb-4">
-              <div className="card h-100">
-                <img src={prato4} className="card-img-top" alt="Prato 4" />
-                <div className="card-body">
-                  <h5 className="card-title">Prato Especial</h5>
-                  <p className="card-text">Uma descrição deliciosa do prato.</p>
-                  <p><strong>1.100 Kz</strong></p>
-                  <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20pedir%20o%20Prato%20Especial."
-                    target="_blank" className="btn btn-success">Pedir via WhatsApp <i className="fab fa-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            {/*Card 5*/}
-            <div className="col-md-4 mb-4">
-              <div className="card h-100">
-                <img src={prato5} className="card-img-top" alt="Prato 5" />
-                <div className="card-body">
-                  <h5 className="card-title">Prato Especial</h5>
-                  <p className="card-text">Uma descrição deliciosa do prato.</p>
-                  <p><strong>500 Kz</strong></p>
-                  <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20pedir%20o%20Prato%20Especial."
-                    target="_blank" className="btn btn-success">Pedir via WhatsApp <i className="fab fa-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            {/*Card 6*/}
-            <div className="col-md-4 mb-4">
-              <div className="card h-100">
-                <img src={prato6} className="card-img-top" alt="Prato 6" />
-                <div className="card-body">
-                  <h5 className="card-title">Prato Especial</h5>
-                  <p className="card-text">Uma descrição deliciosa do prato.</p>
-                  <p><strong>500 Kz</strong></p>
-                  <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20pedir%20o%20Prato%20Especial."
-                    target="_blank" className="btn btn-success">Pedir via WhatsApp <i className="fab fa-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            
+            {cardapios.length === 0 ? (
+              <p className=""> Nenhum prato disponível no momento.</p>
+            ) 
+            : (
+              cardapios.map((cardapio) => {
+                return (
+                  <div className="col-md-4 mb-4" key={cardapio.id}>
+                    <div className="card h-100">
+                      <img src={cardapio.imagem} className="card-img-top" alt={cardapio.desc} />
+                      <div className="card-body">
+                        <h5 className="card-title">{cardapio.titulo}</h5>
+                        <p className="card-text">{cardapio.desc}</p>
+                        <p><strong>{formatPrice(cardapio.preco)}</strong></p>
+                        <a href={cardapio.whatsapp}
+                          target="_blank" rel="noopener noreferrer" className="btn btn-success">Pedir via WhatsApp <i className="fab fa-whatsapp"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })
+            )
+            }
           </div>
         </div>
       </section>
@@ -151,7 +90,7 @@ export default function Home() {
           <h2>Reservas</h2>
           <p className="lead">Faça sua reserva de forma rápida pelo WhatsApp.</p>
           <a href="https://wa.me/244923456789?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva."
-            target="_blank" className="btn btn-success btn-lg">
+            target="_blank" rel="noopener noreferrer" className="btn btn-success btn-lg">
             Reservar pelo WhatsApp <i className="fab fa-whatsapp"></i>
           </a>
         </div>
@@ -174,7 +113,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h6 className="mb-1">Endereço</h6>
-                      <p className="mb-0 text-muted">Av. Exemplo, 123 — Sala 45 Centro, Cidade — País</p>
+                      <p className="mb-0 text-muted">Av. Deolinda Rodrigues, Luanda — Angola</p>
                     </div>
                   </div>
                 </div>
@@ -186,7 +125,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h6 className="mb-1">Telefone</h6>
-                      <p className="mb-0 text-muted">+55 (11) 98765-4321</p>
+                      <a className="link" href="tel:+244923456789">+244 923456789</a>
                     </div>
                   </div>
                 </div>
@@ -198,7 +137,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h6 className="mb-1">E-mail</h6>
-                      <p className="mb-0 text-muted">contato@exemplo.com</p>
+                      <a href="mailto:contatorestaurante@gmail.com">contatorestaurante@gmail.com</a>
                     </div>
                   </div>
                 </div>
@@ -218,9 +157,9 @@ export default function Home() {
 
               <div className="mt-4 text-center">
                 <h6 className="mb-2">Redes sociais</h6>
-                <a href="#" className="btn btn-outline-primary btn-sm me-2"><i className="fa-brands fa-facebook-f"></i></a>
-                <a href="#" className="btn btn-outline-primary btn-sm me-2"><i className="fa-brands fa-instagram"></i></a>
-                <a href="#" className="btn btn-outline-primary btn-sm"><i className="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm me-2"><i className="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm me-2"><i className="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm"><i className="fa-brands fa-linkedin-in"></i></a>
               </div>
             </div>
           </div>
