@@ -29,8 +29,7 @@ Aqui você encontra meus trabalhos práticos e criativos, mostrando evolução c
 
 ---
 
-## 📬 Contato
-- 📧 Email: nsimbaafonso0@gmail.com  
+## 📬 Contato 
 - 💼 LinkedIn: [linkedin.com/in/nsimba-afonso](https://www.linkedin.com/in/nsimba-afonso/)  
 - 🐙 GitHub: [github.com/nsimbaafonso](https://github.com/nsimbaafonso)  
 
