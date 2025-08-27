@@ -6,7 +6,7 @@ export default function Footer() {
       <footer>
         <div className="container">
           <p>
-            &copy; {new Date().getFullYear()} Restaurante Sabor. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Restaurante Sabor & Arte. Todos os direitos reservados.
           </p>
         </div>
       </footer>
